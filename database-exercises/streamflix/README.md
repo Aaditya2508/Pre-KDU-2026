@@ -18,19 +18,27 @@ ORDER BY views_in_millions DESC;
 
 
 -- Query 3:
-SELECT cat.category_name, AVG(c.rating) AS average_rating
-FROM content c JOIN category cat 
-ON c.category_id = cat.category_id
-GROUP BY cat.category_name;
+
+SELECT category_name, r1.average_rating 
+FROM category JOIN 
+( SELECT AVG(rating) as average_rating, category_id 
+FROM content 
+GROUP BY category_id ) 
+as r1 
+ON category.category_id = r1.category_id; 
 
 
 ![Query 3 Output](screenshots/query3.png)
 
 -- Query 4 :
-SELECT c.title,c.rating,c.views_in_millions,cat.category_name
-FROM content c JOIN category cat 
-ON c.category_id = cat.category_id
-WHERE c.rating > 8.5 AND c.views_in_millions > 100;
+SELECT r1.title,r1.rating,r1.views_in_millions, c.category_name 
+FROM category as c JOIN  
+(
+SELECT title,rating,views_in_millions, category_id 
+FROM content 
+WHERE rating > 8.5 AND views_in_millions > 100 
+) as r1 
+ON c.category_id = r1.category_id; 
 
 ![Query 4 Output](screenshots/query4.png)
 
