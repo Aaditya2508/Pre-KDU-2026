@@ -6,7 +6,7 @@ try:
         line = file.read()
 
     # Split movie titles and strip whitespace
-    movies = [movie.strip() for movie in line.split(",") if movie.strip()]
+    movies = [movie.strip() for movie in line.split(",")]
 
     # Dictionary to count movie frequency
     movie_count = {}
