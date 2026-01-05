@@ -76,6 +76,19 @@ Why 2: Why is ACID important for this database?
 
 ACID ensures that the database remains accurate and reliable, even when many users are using it at the same time. For example, if 1000 people watch "Stranger Adventures" and the system updates the views count, ACID makes sure the final count is correct and no update gets lost or overwritten. Without ACID, data could become inconsistent, corrupted, or even partially saved.
 
+
 Why 3: Why would we create an index on category_id?
 
 An index on category_id helps the database find relevant content much faster, similar to how a book index helps you quickly locate a topic instead of reading every page. When the StreamFlix homepage loads and runs hundreds of category-based queries, the index avoids scanning the whole table and speeds up the response time significantly. This improves performance and makes the app feel faster for users.
+
+
+-- FINAL QUERY 1: 
+select content.title, category.category_name 
+FROM content JOIN category 
+ON content.category_id = category.category_id 
+where category.category_name = "Documentaries" AND content.release_year = 2024 AND content.rating > 8.0 ; 
+
+-- FINAL QUERY 2: 
+SELECT * FROM (
+SELECT title, ( rating + views_in_millions) as success_score
+FROM content ) as r WHERE success_score > 100  
