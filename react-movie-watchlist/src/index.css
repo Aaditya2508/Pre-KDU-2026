@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 20px;
+}
+
+.add-movie,
+.movie-list,
+input,
+button,
+select {
+  margin-top: 10px;
+}
+
+.movie-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.movie-list li.watched span {
+  text-decoration: line-through;
+  color: #777;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.clear-btn {
+  margin-top: 15px;
+  background-color: #c0392b;
+  color: white;
+}
