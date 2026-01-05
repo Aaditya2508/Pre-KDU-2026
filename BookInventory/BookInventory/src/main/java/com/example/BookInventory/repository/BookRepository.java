@@ -39,4 +39,6 @@ public interface BookRepository {
      * @return true if exists, false otherwise
      */
     boolean existsByIsbn(String isbn);
+
+     List<Book> findByAuthorName(String Author);
 }

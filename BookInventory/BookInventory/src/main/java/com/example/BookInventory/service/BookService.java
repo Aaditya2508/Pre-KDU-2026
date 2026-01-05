@@ -9,4 +9,5 @@ public interface BookService {
     Book getBookById(Long id);
     List<Book> getAllBooks();
     boolean deleteBook(Long id);
+    List<Book> getBooksByAuthorName(String Author);
 }

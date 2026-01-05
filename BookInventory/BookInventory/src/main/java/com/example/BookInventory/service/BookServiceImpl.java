@@ -57,4 +57,23 @@ public class BookServiceImpl implements BookService{
         else
             return true;
     }
+
+    public List<Book> getBooksByAuthorName(String Author)
+    {
+        if (Author == null || Author.trim().isEmpty()) {
+            throw new IllegalArgumentException("Author name must not be empty");
+        }
+
+        if (!Author.matches("^[A-Za-z ]+$")) {
+            throw new IllegalArgumentException("Enter valid author name");
+        }
+
+        List<Book> booksWithGivenAuthor = bookRepository.findByAuthorName(Author);
+
+        if(booksWithGivenAuthor.isEmpty()) {
+            throw new BookNotFoundException("No books found for Author: " + Author);
+        }
+
+        return booksWithGivenAuthor;
+    }
 }

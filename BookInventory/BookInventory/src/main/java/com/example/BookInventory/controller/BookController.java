@@ -54,5 +54,9 @@ public class BookController {
         return  new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-
+    @GetMapping("/api/v1/books/author/{Author}")
+    public ResponseEntity<List<Book>> getBookByAuthorName(@PathVariable String Author){
+        List<Book> booksWithGivenAuthor = bookService.getBooksByAuthorName(Author);
+        return new ResponseEntity<>(booksWithGivenAuthor, HttpStatus.OK);
+    }
 }

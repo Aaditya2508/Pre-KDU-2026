@@ -41,4 +41,10 @@ public class BookRepositoryImpl implements BookRepository {
                 .anyMatch(book -> book.getIsbn().equals(isbn));
     }
 
+    @Override
+    public List<Book> findByAuthorName(String Author) {
+        return bookStore.values().stream()
+                .filter(book -> book.getAuthor().equalsIgnoreCase(Author))
+                .toList();
+    }
 }
