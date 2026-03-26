@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Timer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>Task Timer</h1>
+    <div class="timer-display" id="timer">25:00</div>
+
+    <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="custom-timer">
+        <input 
+            type="number" 
+            id="customMinutes" 
+            placeholder="Minutes (1-60)" 
+            min="1" 
+            max="60"
+        />
+        <button id="setTimerBtn">Set Timer</button>
+    </div>
+
+    <div class="sessions">
+        Sessions Completed: <span id="sessionCount">0</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
